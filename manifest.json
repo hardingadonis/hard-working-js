@@ -1,0 +1,6 @@
+{
+    "manifest_version": 3,
+    "name": "More Time JS",
+    "description": "Chrome extension - Pomodoro and block all distracting websites",
+    "version": "1.0.0"
+}
