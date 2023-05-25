@@ -2,5 +2,15 @@
     "manifest_version": 3,
     "name": "More Time JS",
     "description": "Chrome extension - Pomodoro and block all distracting websites",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "icons": {
+        "16": "assets/icon-16.png",
+        "32": "assets/icon-32.png",
+        "48": "assets/icon-48.png",
+        "128": "assets/icon-128.png"
+    },
+    "permissions": [
+        "notifications",
+        "tabs"
+    ]
 }
