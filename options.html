@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>More Time JS Options</title>
+</head>
+
+<body>
+
+	<input type="text" name="_csrf" hidden>
+	<h1>More Time JS</h1>
+	<blockquote>
+		<p dir="auto">Chrome extension - Pomodoro and block all distracting websites.</p>
+	</blockquote>
+	<form id="options-form">
+		<div id="websites-list">
+			<h3>Blocked websites</h3>
+			<blockquote>
+				<p dir="auto">Each website writes on the only line.</p>
+			</blockquote>
+			<textarea id="site-list" rows="10" cols="60"></textarea>
+		</div>
+		<div id="pomodoro">
+			<h3>Pomodoro</h3>
+			<blockquote>
+				<p dir="auto">Setting time for Pomodoro.</p>
+			</blockquote>
+			<label for="working-duration">
+				<span>Working time</span>:
+			</label>
+			<input id="working-duration" type="text" size="6" />
+			<span class="minutes">minutes</span>
+			<br>
+			<label for="breaking-duration">
+				<span>Breaking time</span>:
+			</label>
+			<input id="breaking-duration" type="text" size="6" />
+			<span class="minutes">minutes</span>
+			<br>
+			<span id="time-format-error">Time must be in the format MM or MM:SS</span>
+		</div>
+		<div id="others">
+			<h3>Others</h3>
+			<div>
+				<input id="show-notifications" type="checkbox" />
+				<label for="show-notifications">Show a notification when a timer finishes</label>
+			</div>
+			<div>
+				<input id="auto-start" type="checkbox" />
+				<label for="auto-start">Auto start when opening browser</label>
+			</div>
+		</div>
+		<button type="submit" id="save-button">Save changes</button>
+		<span id="save-successful">Save successful</span>
+	</form>
+	<script type="text/javascript" src="options.js"></script>
+</body>
+
+</html>
