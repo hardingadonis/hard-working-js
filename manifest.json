@@ -11,11 +11,15 @@
     },
     "permissions": [
         "notifications",
-        "tabs"
+        "tabs",
+        "storage"
     ],
     "options_page": "options.html",
     "background": {
-        "service_worker": "service_background.js",
+        "service_worker": "js/service_background.js",
         "type": "module"
+    },
+    "action": {
+        "default_popup": "popup.html"
     }
 }
