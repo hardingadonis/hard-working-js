@@ -6,13 +6,25 @@
     "action": {
         "default_popup": "popup/popup.html"
     },
-    "icons": {
-    },
+    "icons": {},
     "background": {
         "service_worker": "background.js",
         "type": "module"
     },
     "permissions": [
-        "storage"
+        "storage",
+        "notifications",
+        "webRequest",
+        "alarms"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
     ]
 }

@@ -20,91 +20,45 @@ tabs.forEach((tab) => {
     });
 });
 
-// --------------------------------------------------------------------------------
-
-// Handling for working-tab
 const start_btn = document.getElementById('start-btn');
-
 start_btn.onclick = () => {
-    chrome.runtime.sendMessage({ event: 'onStart' });
-
     start_btn.disabled = true;
+    stop_btn.disabled = false;
+    chrome.storage.local.set({ 'isRunning': true })
 };
 
-// --------------------------------------------------------------------------------
+const stop_btn = document.getElementById('stop-btn');
 
-// Handling for settings-tab
+stop_btn.onclick = () => {
+    stop_btn.disabled = true;
+    start_btn.disabled = false;
+    chrome.storage.local.set({ 'isRunning': false })
+};
+
+chrome.storage.local.get(['isRunning'], (result) => {
+    const { isRunning } = result;
+
+    if (isRunning) {
+        start_btn.disabled = true;
+        stop_btn.disabled = false;
+    }
+    else {
+        stop_btn.disabled = true;
+        start_btn.disabled = false;
+    }
+});
+
+
+
 const save_btn = document.getElementById('save-btn');
 
 const blocked_list = document.getElementById('blocked-list-id');
-const end_time = document.getElementById('end-time-id');
-const push_notifications = document.getElementById('push-notifications-id');
 
 save_btn.onclick = () => {
-
-    let end_time_value;
-
-    if (!end_time.value) {
-
-        let next_time = new Date();
-        next_time.setMinutes(next_time.getMinutes() + 30);
-        next_time.setSeconds(0);
-        next_time.setMilliseconds(0);
-
-        end_time_value = next_time;
-    }
-    else {
-        const [hours, minutes] = end_time.value.split(':');
-
-        let next_time = new Date();
-        next_time.setHours(hours, minutes);
-        next_time.setSeconds(0);
-        next_time.setMilliseconds(0);
-
-        let current_time = new Date();
-
-        if (next_time > current_time) {
-            end_time_value = next_time;
-        }
-        else {
-            current_time.setMinutes(current_time.getMinutes() + 30);
-            current_time.setSeconds(0);
-            current_time.setMilliseconds(0);
-
-            end_time_value = current_time;
-        }
-    }
-
-    const prefs = {
-        'blockedList': blocked_list.value.split('\n').filter(element => element !== ''),
-        'endTime': end_time_value,
-        'pushNotifications': push_notifications.checked
-    }
-
-    chrome.runtime.sendMessage({ event: 'onSaveChanges', prefs });
+    chrome.storage.local.set({ 'blockedList': blocked_list.value.split('\n').filter(element => element !== '') });
 };
 
-// --------------------------------------------------------------------------------
-
-// Get prefs from storage
-chrome.storage.local.get(['blockedList', 'endTime', 'pushNotifications'], (result) => {
-
-    console.log(result)
-    const { blockedList, endTime, pushNotifications } = result;
-
-    if (blockedList) {
-        blocked_list.value = blockedList.join('\n');
-    }
-
-    if (endTime) {
-        let temp = new Date(endTime);
-        let hours = temp.getHours().toString().padStart(2, '0');
-        let minutes = temp.getMinutes().toString().padStart(2, '0');
-
-        end_time.value = hours + ':' + minutes;
-    }
-
-    if (pushNotifications) {
-        push_notifications.checked = pushNotifications;
-    }
+chrome.storage.local.get(['blockedList'], (result) => {
+    const { blockedList } = result;
+    blocked_list.value = blockedList.join('\n');
 });
