@@ -1,3 +1,6 @@
+let working_duration_label = document.getElementById('working-duration-label')
+let break_duration_label = document.getElementById('break-duration-label')
+
 let working_duration = document.getElementById('working-duration')
 let break_duration= document.getElementById('break-duration')
 

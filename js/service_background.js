@@ -1,4 +1,4 @@
-const CONFIG = load_config();
+let CONFIG = load_config();
 
 function load_default_config() {
     return {
