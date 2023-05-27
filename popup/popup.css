@@ -1,0 +1,15 @@
+body {
+    width: 450px;
+    height: auto;
+}
+
+
+#title-str {
+    color: hsl(229, 53%, 53%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#time-left-label {
+    font-size: 300%;
+}
