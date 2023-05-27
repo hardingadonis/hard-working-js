@@ -13,23 +13,24 @@ let auto_start = document.getElementById('auto-start');
 
 let save_successful = document.getElementById('save-successful');
 
-let background = chrome.extension.getViews();
-console.log(background)
+// let background = chrome.extension.getViews();
+// console.log(background)
 
 options_form.onsubmit = function () {
     console.log("options-form submitted");
 
-    const TIME_REGEX = /^(?:[0-9]|[1-5][0-9]|60)$/;
-    let durations = {};
+    const TIME_REGEX = /^(?:[0-5][0-9]):(?:[0-5][0-9])$/;
+    let durations = {}; // in seconds
 
     for (var key in duration_elements) {
         var duration_str = duration_elements[key].value;
 
         var result = duration_str.match(TIME_REGEX);
         if (result) {
-            durations[key] = result[0];
+            result_str = result[0].split(':');
+            durations[key] = result_str[0] * 60 + result_str[1];
 
-            console.log(key + ' time is ' + durations[key] + ' minutes')
+            console.log(key + ' time is ' + durations[key] + ' seconds')
         }
         else {
             time_format_error.removeAttribute('hidden');
@@ -39,8 +40,6 @@ options_form.onsubmit = function () {
         }
     }
     console.log(durations);
-
-
 
     time_format_error.setAttribute('hidden', 'hidden');
     save_successful.removeAttribute("hidden");
