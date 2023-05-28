@@ -20,20 +20,34 @@ tabs.forEach((tab) => {
     });
 });
 
+// ----------------------------------------------------------------------
+
+// Handling for Start button
+
 const start_btn = document.getElementById('start-btn');
 start_btn.onclick = () => {
     start_btn.disabled = true;
     stop_btn.disabled = false;
+
     chrome.storage.local.set({ 'isRunning': true })
+    chrome.action.setBadgeText({text: 'on'});
 };
+
+// ----------------------------------------------------------------------
+
+// Handling for Stop button
 
 const stop_btn = document.getElementById('stop-btn');
 
 stop_btn.onclick = () => {
     stop_btn.disabled = true;
     start_btn.disabled = false;
+
     chrome.storage.local.set({ 'isRunning': false })
+    chrome.action.setBadgeText({text: 'off'});
 };
+
+// ----------------------------------------------------------------------
 
 chrome.storage.local.get(['isRunning'], (result) => {
     const { isRunning } = result;
@@ -41,14 +55,20 @@ chrome.storage.local.get(['isRunning'], (result) => {
     if (isRunning) {
         start_btn.disabled = true;
         stop_btn.disabled = false;
+
+        chrome.action.setBadgeText({text: 'on'});
     }
     else {
         stop_btn.disabled = true;
         start_btn.disabled = false;
+
+        chrome.action.setBadgeText({text: 'off'});
     }
 });
 
+// ----------------------------------------------------------------------
 
+// Handling for Save button
 
 const save_btn = document.getElementById('save-btn');
 
