@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Hard-working JS",
-    "description": "Chrome extension - Pomodoro and block all distracting websites.",
+    "description": "Chrome extension - Block all distracting websites.",
     "version": "1.0.0",
     "action": {
         "default_popup": "popup/popup.html"
