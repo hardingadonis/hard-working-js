@@ -1,24 +1,31 @@
 {
-   "background": {
-      "scripts": ["background.js"]
-   },
-   "browser_action": {
-      "default_icon": "icons/work_pending.png"
-   },
-   "default_locale": "en",
-   "description": "__MSG_ext_description__",
-   "icons": {
-      "128": "icons/icon128.png",
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png"
-   },
-   "manifest_version": 2,
-   "name": "__MSG_ext_name__",
-   "options_page": "options.html",
-   "permissions": [ "notifications", "tabs", "<all_urls>" ],
-   "version": "1.7.0",
-   "web_accessible_resources": [
-      "icons/work_full.png",
-      "icons/break_full.png"
-   ]
+    "manifest_version": 3,
+    "name": "Hard-working JS",
+    "description": "Chrome extension - Pomodoro and block all distracting websites.",
+    "version": "1.0.0",
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "icons": {
+        "128": "assets/icon-128.png",
+        "48": "assets/icon-48.png",
+        "32": "assets/icon-32.png",
+        "16": "assets/icon-16.png"
+    },
+    "permissions": [
+        "storage",
+        "notifications",
+        "webRequest",
+        "alarms"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
 }

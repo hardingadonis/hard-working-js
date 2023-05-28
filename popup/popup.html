@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hard-working JS</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="bulma.min.css" />
+    <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+    <div class="title m-4 is-centered">
+        <h4 class="title is-4 has-text-centered" id="title-str">Hard-working JS</h4>
+
+
+        <div class="tabs is-fullwidth">
+            <ul>
+                <li class="is-active" data-target="working-tab">
+                    <a>
+                        <span class="icon is-small"><i class="fa-regular fa-clock" aria-hidden="true"></i></span>
+                        <span>Working time</span>
+                    </a>
+                </li>
+                <li data-target="settings-tab">
+                    <a>
+                        <span class="icon is-small"><i class="fa-solid fa-gears" aria-hidden="true"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="tab-content">
+            <!-- Working time -->
+            <div class="block is-centered" id="working-tab">
+                <div>
+
+                    <div class="box has-text-centered">
+                        <button class="button is-primary is-centered" id="start-btn">Start</button>
+                        <button class="button is-danger is-centered" id="stop-btn" disabled>Stop</button>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="block is-centered is-hidden" id="settings-tab">
+                <div>
+                    <div class="box">
+
+                        <h4 class="title is-4">Blocked list</h4>
+                        <textarea class="textarea is-small" placeholder="Each website writes on the only line."
+                            id="blocked-list-id"></textarea><br>
+                        <div class="block has-text-centered">
+                            <button class="button is-success has-text-centered" id="save-btn">Save changes</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
