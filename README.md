@@ -9,9 +9,11 @@ Do you also surf TikTok too much?
 
 Don't have enough time to get the job done?
 
-Don't worry, because Hard-working JS is available. Let's see...
+Don't worry, because [**Hard-working JS**](https://github.com/hardingadonis/hard-working-js) is available. Let's see...
 
 ## Demo
+
+![Demo video](/assets/demo.mp4)
 
 ## Install
 - Step 1: Download this extension:
