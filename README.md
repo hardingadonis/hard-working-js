@@ -17,7 +17,7 @@ Don't worry, because [**Hard-working JS**](https://github.com/hardingadonis/hard
 
 ## Install
 - Step 1: Download this extension:
-    - Method 1: Download from release. [Click here](https://github.com/hardingadonis/hard-working-js/blob/releases)
+    - Method 1: Download from release. [Click here](https://github.com/hardingadonis/hard-working-js/releases)
     - Method 2: Clone this repo from `main` branch:  
         ```shell
         git clone https://github.com/hardingadonis/hard-working-js.git
