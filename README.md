@@ -1,5 +1,5 @@
 # Hard-working JS
-> Chrome extension - Block all distracting websites
+> Chrome extension - Pomodoro and lock all distracting websites
 
 ## Introduce
 
@@ -17,7 +17,7 @@ Don't worry, because [**Hard-working JS**](https://github.com/hardingadonis/hard
 
 ## Install
 - Step 1: Download this extension:
-    - Method 1: Download from release. [Click here](https://github.com/hardingadonis/hard-working-js/blob/releases)
+    - Method 1: Download from release. [Click here](https://github.com/hardingadonis/hard-working-js/releases)
     - Method 2: Clone this repo from `main` branch:  
         ```shell
         git clone https://github.com/hardingadonis/hard-working-js.git
@@ -53,6 +53,8 @@ SOFTWARE.
 ## External libraries and assets used by Hard-working JS
 
 - The ideas are inspired by [matchu/Strict-Workflow](https://github.com/matchu/Strict-Workflow).
+
+- Pomodoro: [ErickKS/pomodoro-timer](https://github.com/ErickKS/pomodoro-timer).
 
 - [Bulma CSS Framwork](https://bulma.io/).
 
