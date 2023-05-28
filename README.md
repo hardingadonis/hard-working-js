@@ -52,4 +52,6 @@ SOFTWARE.
 
 - The ideas are inspired by [matchu/Strict-Workflow](https://github.com/matchu/Strict-Workflow).
 
+- [Bulma CSS Framwork](https://bulma.io/).
+
 - *[Hard-working JS icon](https://github.com/hardingadonis/hard-working-js/blob/main/assets/)* is under the [flaticon](https://www.flaticon.com/free-icon/hourglass_3073484).
