@@ -29,7 +29,7 @@ start_btn.onclick = () => {
     start_btn.disabled = true;
     stop_btn.disabled = false;
 
-    chrome.storage.local.set({ 'isRunning': true })
+    chrome.storage.sync.set({ 'isRunning': true })
     chrome.action.setBadgeText({ text: 'on' });
 
     chrome.notifications.create({
@@ -50,7 +50,7 @@ stop_btn.onclick = () => {
     stop_btn.disabled = true;
     start_btn.disabled = false;
 
-    chrome.storage.local.set({ 'isRunning': false })
+    chrome.storage.sync.set({ 'isRunning': false })
     chrome.action.setBadgeText({ text: 'off' });
 
     chrome.notifications.create({
@@ -63,7 +63,7 @@ stop_btn.onclick = () => {
 
 // ----------------------------------------------------------------------
 
-chrome.storage.local.get(['isRunning'], (result) => {
+chrome.storage.sync.get(['isRunning'], (result) => {
     const { isRunning } = result;
 
     if (isRunning) {
@@ -89,10 +89,23 @@ const save_btn = document.getElementById('save-btn');
 const blocked_list = document.getElementById('blocked-list-id');
 
 save_btn.onclick = () => {
-    chrome.storage.local.set({ 'blockedList': blocked_list.value.split('\n').filter(element => element !== '') });
+    chrome.storage.sync.set({ 'blockedList': blocked_list.value.split('\n').filter(element => element !== '') });
 };
 
-chrome.storage.local.get(['blockedList'], (result) => {
+chrome.storage.sync.get(['blockedList'], (result) => {
     const { blockedList } = result;
-    blocked_list.value = blockedList.join('\n');
+
+    if (blockedList) {
+        blocked_list.value = blockedList.join('\n');
+    }
 });
+
+// ----------------------------------------------------------------------
+
+// Handling for Pomodoro button
+
+const pomodoro_btn = document.getElementById('pomodoro-btn');
+
+pomodoro_btn.onclick = () => {
+    chrome.tabs.create({ url: './pomodoro/pomodoro.html' });
+};
