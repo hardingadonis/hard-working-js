@@ -30,7 +30,14 @@ start_btn.onclick = () => {
     stop_btn.disabled = false;
 
     chrome.storage.local.set({ 'isRunning': true })
-    chrome.action.setBadgeText({text: 'on'});
+    chrome.action.setBadgeText({ text: 'on' });
+
+    chrome.notifications.create({
+        title: 'Hard-working JS',
+        message: 'Hard-working JS is running!',
+        iconUrl: '../assets/icon-128.png',
+        type: 'basic'
+    });
 };
 
 // ----------------------------------------------------------------------
@@ -44,7 +51,14 @@ stop_btn.onclick = () => {
     start_btn.disabled = false;
 
     chrome.storage.local.set({ 'isRunning': false })
-    chrome.action.setBadgeText({text: 'off'});
+    chrome.action.setBadgeText({ text: 'off' });
+
+    chrome.notifications.create({
+        title: 'Hard-working JS',
+        message: 'Hard-working JS is stopped!',
+        iconUrl: '../assets/icon-128.png',
+        type: 'basic'
+    });
 };
 
 // ----------------------------------------------------------------------
@@ -56,13 +70,13 @@ chrome.storage.local.get(['isRunning'], (result) => {
         start_btn.disabled = true;
         stop_btn.disabled = false;
 
-        chrome.action.setBadgeText({text: 'on'});
+        chrome.action.setBadgeText({ text: 'on' });
     }
     else {
         stop_btn.disabled = true;
         start_btn.disabled = false;
 
-        chrome.action.setBadgeText({text: 'off'});
+        chrome.action.setBadgeText({ text: 'off' });
     }
 });
 
