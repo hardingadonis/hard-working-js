@@ -1,5 +1,5 @@
 # Hard-working JS
-> Chrome extension - Block all distracting websites
+> Chrome extension - Pomodoro and lock all distracting websites
 
 ## Introduce
 
@@ -53,6 +53,8 @@ SOFTWARE.
 ## External libraries and assets used by Hard-working JS
 
 - The ideas are inspired by [matchu/Strict-Workflow](https://github.com/matchu/Strict-Workflow).
+
+- Pomodoro: [ErickKS/pomodoro-timer](https://github.com/ErickKS/pomodoro-timer).
 
 - [Bulma CSS Framwork](https://bulma.io/).
 

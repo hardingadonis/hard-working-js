@@ -94,5 +94,18 @@ save_btn.onclick = () => {
 
 chrome.storage.sync.get(['blockedList'], (result) => {
     const { blockedList } = result;
-    blocked_list.value = blockedList.join('\n');
+
+    if (blockedList) {
+        blocked_list.value = blockedList.join('\n');
+    }
 });
+
+// ----------------------------------------------------------------------
+
+// Handling for Pomodoro button
+
+const pomodoro_btn = document.getElementById('pomodoro-btn');
+
+pomodoro_btn.onclick = () => {
+    chrome.tabs.create({ url: './pomodoro/pomodoro.html' });
+};
