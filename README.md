@@ -13,7 +13,7 @@ Don't worry, because [**Hard-working JS**](https://github.com/hardingadonis/hard
 
 ## Demo
 
-![Demo video](/assets/demo.mp4)
+[Demo video](https://youtu.be/etBxiDNK8ig)
 
 ## Install
 - Step 1: Download this extension:
