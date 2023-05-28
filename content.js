@@ -1,5 +1,5 @@
 
-chrome.storage.local.get(['blockedList', 'isRunning'], (result) => {
+chrome.storage.sync.get(['blockedList', 'isRunning'], (result) => {
     const { blockedList, isRunning } = result;
 
     if (isRunning) {
